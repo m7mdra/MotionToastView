@@ -15,13 +15,10 @@ class MTPale: UIView {
     @IBOutlet weak var circleView: UIView!
     @IBOutlet weak var circleImg: UIImageView!
     @IBOutlet weak var toastView: UIView!
-    @IBOutlet weak var sideBarView: UIView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
-        sideBarView.layer.cornerRadius = 3
-        toastView.layer.cornerRadius = 12
         circleView.layer.cornerRadius = circleView.bounds.size.width/2
     }
     
@@ -31,6 +28,7 @@ class MTPale: UIView {
     }
     
     func commonInit() {
+        Fonts.loadFonts()
         let bundle = Bundle(for: MTPale.self)
         let viewFromXib = bundle.loadNibNamed("MTPale", owner: self, options: nil)![0] as! UIView
         viewFromXib.frame = self.bounds
@@ -48,36 +46,35 @@ class MTPale: UIView {
         circleImg.layer.add(pulseAnimation, forKey: "animateOpacity")
     }
     
-    func setupViews(toastType: ToastType) {
+    func setupViews(toastType: ToastType, cornerRadius: CGFloat) {
+        
+        toastView.layer.cornerRadius = cornerRadius
+        toastView.layer.borderWidth = 1
+        //TODO: load custom fonts
+//        headLabel.font = Fonts.Style.bold.font
+//        headLabel.font = Fonts.Style.regular.font
+
         switch toastType {
-            case .success:
-                headLabel.text = "Success"
-                circleImg.image = loadImage(name: "success_icon_white")
-                sideBarView.backgroundColor = UIColor(red: 242.0, green: 201.0, blue: 76.0, alpha: 1.0)
-                circleView.backgroundColor = UIColor(red: 242.0, green: 201.0, blue: 76.0, alpha: 1.0)
-                toastView.backgroundColor = loadColor(name: "alpha_green_dark")
-                break
-            case .error:
-                headLabel.text = "Error"
-                circleImg.image = loadImage(name: "error_icon_white")
-                sideBarView.backgroundColor = UIColor(red: 235.0, green: 87.0, blue: 87.0, alpha: 1.0)
-                circleView.backgroundColor = UIColor(red: 235.0, green: 87.0, blue: 87.0, alpha: 1.0)
-                toastView.backgroundColor = loadColor(name: "alpha_red_dark")
-                break
-            case .warning:
-                headLabel.text = "Warning"
-                circleImg.image = loadImage(name: "warning_icon_white")
-                sideBarView.backgroundColor = UIColor(red: 242.0, green: 201.0, blue: 76.0, alpha: 1.0)
-                circleView.backgroundColor = UIColor(red: 242.0, green: 201.0, blue: 76.0, alpha: 1.0)
-                toastView.backgroundColor = loadColor(name: "alpha_yellow_dark")
-                break
-            case .info:
-                headLabel.text = "Info"
-                circleImg.image = loadImage(name: "info_icon_white")
-                sideBarView.backgroundColor = UIColor(red: 47.0, green: 128.0, blue: 237.0, alpha: 1.0)
-                circleView.backgroundColor = UIColor(red: 47.0, green: 128.0, blue: 237.0, alpha: 1.0)
-                toastView.backgroundColor = loadColor(name: "alpha_blue_dark")
-                break
+        case .success:
+            circleImg.image = loadImage(name: "success_icon")
+            circleView.backgroundColor = loadColor(name: "success_circle")
+            toastView.backgroundColor = loadColor(name: "success_background")
+            toastView.layer.borderColor = loadColor(name: "success_circle")?.cgColor
+
+            break
+        case .error:
+            circleImg.image = loadImage(name: "error_icon")
+            circleView.backgroundColor = loadColor(name: "error_circle")
+            toastView.backgroundColor = loadColor(name: "error_background")
+            toastView.layer.borderColor = loadColor(name: "error_circle")?.cgColor
+            break
+        case .warning:
+            circleImg.image = loadImage(name: "warning_icon")
+            circleView.backgroundColor = loadColor(name: "warning_circle")
+            toastView.backgroundColor = loadColor(name: "warning_background")
+            toastView.layer.borderColor = loadColor(name: "warning_circle")?.cgColor
+            break
+
         }
     }
     

@@ -28,13 +28,12 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://www.linkedin.com/in/sameer-nawaz-linked/'
 
   s.ios.deployment_target = '13.0'
-
   s.source_files = 'Source/**/**'
   s.swift_version = '5.0'
   s.platforms = {
     "ios": "13.0"
   }
-  
+  s.resources = ["Fonts/*"]
   s.resource_bundles = {
     'MotionToastView' => ['MotionToastView/**']
   }

@@ -21,6 +21,9 @@
   },
   "source_files": "Source/**/**",
   "swift_versions": "5.0",
+  "resources": [
+    "Fonts/*"
+  ],
   "resource_bundles": {
     "MotionToastView": [
       "MotionToastView/**"
