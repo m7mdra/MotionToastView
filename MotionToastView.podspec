@@ -33,9 +33,9 @@ Pod::Spec.new do |s|
   s.platforms = {
     "ios": "13.0"
   }
-  s.resources = ["Fonts/*"]
+  resources = []
   s.resource_bundles = {
-    'MotionToastView' => ['MotionToastView/**']
+    'MotionToastView' => ['MotionToastView/**', 'Source/fonts/*.ttf']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'

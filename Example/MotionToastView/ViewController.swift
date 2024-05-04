@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func infoButt(_ sender: UIButton) {
+        MotionToast(title: "Title here", message: "You are not in the location. Try again", toastType: .noConnection, duration: .long, toastGravity: .top, toastCornerRadius: 30, pulseEffect: false)
     }
 
     

@@ -43,7 +43,6 @@ public class Fonts: NSObject {
     }()
     
     private static func loadFont(withName fontName: String) {
-        print("loading fonts")
 
         guard
             let bundleURL = Bundle(for: self).url(forResource: "MotionToastView", withExtension: "bundle"),
@@ -51,13 +50,7 @@ public class Fonts: NSObject {
             let fontURL = bundle.url(forResource: fontName, withExtension: "ttf"),
             let fontData = try? Data(contentsOf: fontURL) as CFData,
             let provider = CGDataProvider(data: fontData),
-            let font = CGFont(provider) else {
-           
-        
-            
-            return
-        }
-        print("loading fonts. success")
+            let font = CGFont(provider) else { return }
         CTFontManagerRegisterGraphicsFont(font, nil)
     }
     

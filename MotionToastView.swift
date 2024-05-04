@@ -1,6 +1,6 @@
 //
 //  MTPale.swift
-//  MotionToast
+//  MotionToastView
 //
 //  Created by Sameer Nawaz on 10/08/20.
 //  Copyright © 2020 Femargent Inc. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MTPale: UIView {
+class MotionToastView: UIView {
     
     @IBOutlet weak var headLabel: UILabel!
     @IBOutlet weak var msgLabel: UILabel!
@@ -29,8 +29,8 @@ class MTPale: UIView {
     
     func commonInit() {
         Fonts.loadFonts()
-        let bundle = Bundle(for: MTPale.self)
-        let viewFromXib = bundle.loadNibNamed("MTPale", owner: self, options: nil)![0] as! UIView
+        let bundle = Bundle(for: MotionToastView.self)
+        let viewFromXib = bundle.loadNibNamed("MotionToastView", owner: self, options: nil)![0] as! UIView
         viewFromXib.frame = self.bounds
         addSubview(viewFromXib)
     }
@@ -50,6 +50,7 @@ class MTPale: UIView {
         
         toastView.layer.cornerRadius = cornerRadius
         toastView.layer.borderWidth = 1
+        
         //TODO: load custom fonts
 //        headLabel.font = Fonts.Style.bold.font
 //        headLabel.font = Fonts.Style.regular.font
@@ -73,13 +74,19 @@ class MTPale: UIView {
             circleView.backgroundColor = loadColor(name: "warning_circle")
             toastView.backgroundColor = loadColor(name: "warning_background")
             toastView.layer.borderColor = loadColor(name: "warning_circle")?.cgColor
+        case .noConnection:
+            circleImg.image = loadImage(name: "no_connection_icon")
+            circleView.backgroundColor = loadColor(name: "error_circle")
+            toastView.backgroundColor = loadColor(name: "error_background")
+            toastView.layer.borderColor = loadColor(name: "error_circle")?.cgColor
+
             break
 
         }
     }
     
     func loadImage(name: String) -> UIImage? {
-        let podBundle = Bundle(for: MTPale.self)
+        let podBundle = Bundle(for: MotionToastView.self)
         if let url = podBundle.url(forResource: "MotionToastView", withExtension: "bundle") {
             let bundle = Bundle(url: url)
             return UIImage(named: name, in: bundle, compatibleWith: nil)
@@ -88,7 +95,7 @@ class MTPale: UIView {
     }
     
     func loadColor(name: String) -> UIColor? {
-        let podBundle = Bundle(for: MTPale.self)
+        let podBundle = Bundle(for: MotionToastView.self)
         if let url = podBundle.url(forResource: "MotionToastView", withExtension: "bundle") {
             let bundle = Bundle(url: url)
             return UIColor(named: name, in: bundle, compatibleWith: nil)

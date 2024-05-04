@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "Warning"; ObjectID = "3Ap-07-C51"; */
+"3Ap-07-C51.normalTitle" = "Warning";
+
+/* Class = "UIButton"; normalTitle = "Info"; ObjectID = "5Z0-d5-01a"; */
+"5Z0-d5-01a.normalTitle" = "Info";
+
+/* Class = "UIButton"; normalTitle = "Success"; ObjectID = "TNT-NJ-rQf"; */
+"TNT-NJ-rQf.normalTitle" = "Success";
+
+/* Class = "UIButton"; normalTitle = "Error"; ObjectID = "bpX-xi-gRH"; */
+"bpX-xi-gRH.normalTitle" = "Error";

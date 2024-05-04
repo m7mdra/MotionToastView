@@ -8,23 +8,6 @@
 
 import UIKit
 
-public enum ToastType {
-    case success
-    case error
-    case warning
-}
-
-public enum ToastDuration {
-    case short
-    case long
-}
-
-public enum ToastGravity {
-    case top
-    case centre
-    case bottom
-}
-
 
 extension UIViewController {
     
@@ -71,14 +54,15 @@ func generateHapticFeedback(for type: ToastType) {
         generator.notificationOccurred(.success)
     case .error:
         generator.notificationOccurred(.error)
-    case .warning:
+    case .warning, .noConnection:
         generator.notificationOccurred(.warning)
+        
 
     }
 }
 
 
-func toastStyle_pale(title: String, message: String, toastType: ToastType, toastGravity: ToastGravity, toastCornerRadius: CGFloat, view: UIView, pulseEffect: Bool) -> MTPale {
+func toastStyle_pale(title: String, message: String, toastType: ToastType, toastGravity: ToastGravity, toastCornerRadius: CGFloat, view: UIView, pulseEffect: Bool) -> MotionToastView {
     
     var gravity = CGRect(x: 0.0, y: view.frame.height - 130.0, width: view.frame.width, height: 83.0)
     switch toastGravity {
@@ -90,7 +74,7 @@ func toastStyle_pale(title: String, message: String, toastType: ToastType, toast
         gravity = CGRect(x: 0.0, y: view.frame.height - 130.0, width: view.frame.width, height: 83.0)
     }
     
-    let toastView = MTPale(frame: gravity)
+    let toastView = MotionToastView(frame: gravity)
     toastView.headLabel.text = title
     toastView.setupViews(toastType: toastType, cornerRadius: toastCornerRadius)
     if pulseEffect { toastView.addPulseEffect() }
