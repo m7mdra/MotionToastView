@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func successButt(_ sender: UIButton) {
-        MotionToast(title: "نجاح", message: "تمت اضافة المنتج الى السلة بنجاح", toastType: .success,toastGravity: .centre)
+        MotionToast(message: "تمت اضافة المنتج الى السلة بنجاحتمت اضافة المنتج الى السلة بنجاحتمت اضافة المنتج الى السلة بنجاحتمت اضافة المنتج الى السلة بنجاح", toastType: .success, toastGravity: .center)
     }
     
     @IBAction func errorButt(_ sender: UIButton) {
@@ -32,6 +32,9 @@ class ViewController: UIViewController {
         MotionToast(title: "Title here", message: "You are not in the location. Try again", toastType: .noConnection, duration: .long, toastGravity: .top, toastCornerRadius: 30, pulseEffect: false)
     }
 
+    @IBAction func didTapDismissButton(_ sender: Any) {
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

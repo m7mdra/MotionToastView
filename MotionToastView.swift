@@ -16,10 +16,11 @@ class MotionToastView: UIView {
     @IBOutlet weak var circleImg: UIImageView!
     @IBOutlet weak var toastView: UIView!
     
+    @IBOutlet weak var parentView: UIView!
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
-        circleView.layer.cornerRadius = circleView.bounds.size.width/2
+
     }
     
     required init?(coder: NSCoder) {
@@ -32,7 +33,10 @@ class MotionToastView: UIView {
         let bundle = Bundle(for: MotionToastView.self)
         let viewFromXib = bundle.loadNibNamed("MotionToastView", owner: self, options: nil)![0] as! UIView
         viewFromXib.frame = self.bounds
+        isUserInteractionEnabled = true
         addSubview(viewFromXib)
+        circleView.layer.cornerRadius = circleView.bounds.size.width/2
+
     }
     
     func addPulseEffect() {
@@ -46,10 +50,23 @@ class MotionToastView: UIView {
         circleImg.layer.add(pulseAnimation, forKey: "animateOpacity")
     }
     
+    public func dismiss(){
+        removeFromSuperview()
+    }
+    
+   
+    @objc func didTapView() {
+        print("tap action")
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        print(#function)
+    }
     func setupViews(toastType: ToastType, cornerRadius: CGFloat) {
         
         toastView.layer.cornerRadius = cornerRadius
         toastView.layer.borderWidth = 1
+    
         
         //TODO: load custom fonts
 //        headLabel.font = Fonts.Style.bold.font
@@ -61,7 +78,6 @@ class MotionToastView: UIView {
             circleView.backgroundColor = loadColor(name: "success_circle")
             toastView.backgroundColor = loadColor(name: "success_background")
             toastView.layer.borderColor = loadColor(name: "success_circle")?.cgColor
-
             break
         case .error:
             circleImg.image = loadImage(name: "error_icon")

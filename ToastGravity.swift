@@ -8,6 +8,6 @@
 import Foundation
 public enum ToastGravity {
     case top
-    case centre
+    case center
     case bottom
 }
