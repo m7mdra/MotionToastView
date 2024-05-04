@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,16 +20,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83m-B5-asE">
-                                <rect key="frame" x="3" y="189" width="369" height="289"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="hKj-Gx-s0v">
+                                <rect key="frame" x="80" y="239.5" width="215" height="188"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNT-NJ-rQf">
-                                        <rect key="frame" x="109.5" y="0.0" width="150" height="45"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNT-NJ-rQf">
+                                        <rect key="frame" x="0.0" y="0.0" width="215" height="35"/>
                                         <color key="backgroundColor" red="0.56862745100000001" green="0.61176470589999998" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="5RV-jm-EqX"/>
-                                            <constraint firstAttribute="width" constant="150" id="hqb-6P-ZQb"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <state key="normal" title="Success">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -36,13 +34,9 @@
                                             <action selector="successButt:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="iu9-aZ-XSi"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpX-xi-gRH">
-                                        <rect key="frame" x="109.5" y="61" width="150" height="45"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpX-xi-gRH">
+                                        <rect key="frame" x="0.0" y="51" width="215" height="35"/>
                                         <color key="backgroundColor" red="0.56862745100000001" green="0.61176470589999998" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="Nht-aZ-bOn"/>
-                                            <constraint firstAttribute="height" constant="45" id="bsh-T1-bcR"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <state key="normal" title="Error">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -51,13 +45,9 @@
                                             <action selector="errorButt:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uhP-Op-u1J"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ap-07-C51">
-                                        <rect key="frame" x="109.5" y="122" width="150" height="45"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ap-07-C51">
+                                        <rect key="frame" x="0.0" y="102" width="215" height="35"/>
                                         <color key="backgroundColor" red="0.56862745100000001" green="0.61176470589999998" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="duK-En-VHZ"/>
-                                            <constraint firstAttribute="width" constant="150" id="t0h-uc-pFs"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <state key="normal" title="Warning">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -66,13 +56,9 @@
                                             <action selector="warningButt:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="d5d-ug-Ahu"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Z0-d5-01a">
-                                        <rect key="frame" x="109.5" y="183" width="150" height="45"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Z0-d5-01a">
+                                        <rect key="frame" x="0.0" y="153" width="215" height="35"/>
                                         <color key="backgroundColor" red="0.56862745100000001" green="0.61176470589999998" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="7H8-GX-SaO"/>
-                                            <constraint firstAttribute="height" constant="45" id="RNx-2h-vVJ"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <state key="normal" title="Info">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,44 +67,15 @@
                                             <action selector="infoButt:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4Dx-uE-vjT"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uww-m7-lvU">
-                                        <rect key="frame" x="45" y="244" width="279" height="45"/>
-                                        <color key="backgroundColor" red="0.56862745100000001" green="0.61176470589999998" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="ILu-SJ-ch1"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="16"/>
-                                        <state key="normal" title="Customised Toast">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="customToastButt:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2aB-9o-9ca"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="bpX-xi-gRH" firstAttribute="centerX" secondItem="83m-B5-asE" secondAttribute="centerX" id="95h-k2-Z1a"/>
-                                    <constraint firstItem="Uww-m7-lvU" firstAttribute="top" secondItem="5Z0-d5-01a" secondAttribute="bottom" constant="16" id="DXO-2L-bFE"/>
-                                    <constraint firstItem="3Ap-07-C51" firstAttribute="centerX" secondItem="83m-B5-asE" secondAttribute="centerX" id="Dni-n6-lEy"/>
-                                    <constraint firstAttribute="bottom" secondItem="Uww-m7-lvU" secondAttribute="bottom" id="M5i-ws-rqW"/>
-                                    <constraint firstItem="bpX-xi-gRH" firstAttribute="top" secondItem="TNT-NJ-rQf" secondAttribute="bottom" constant="16" id="Mwb-Ht-mqx"/>
-                                    <constraint firstItem="Uww-m7-lvU" firstAttribute="leading" secondItem="83m-B5-asE" secondAttribute="leading" constant="45" id="OYO-ep-9KL"/>
-                                    <constraint firstItem="5Z0-d5-01a" firstAttribute="centerX" secondItem="83m-B5-asE" secondAttribute="centerX" id="Wy6-1w-ZLp"/>
-                                    <constraint firstItem="3Ap-07-C51" firstAttribute="top" secondItem="bpX-xi-gRH" secondAttribute="bottom" constant="16" id="jac-wi-nTk"/>
-                                    <constraint firstItem="TNT-NJ-rQf" firstAttribute="centerX" secondItem="83m-B5-asE" secondAttribute="centerX" id="knK-9M-buT"/>
-                                    <constraint firstAttribute="trailing" secondItem="Uww-m7-lvU" secondAttribute="trailing" constant="45" id="sLH-U2-9P4"/>
-                                    <constraint firstItem="TNT-NJ-rQf" firstAttribute="top" secondItem="83m-B5-asE" secondAttribute="top" id="w9c-jI-2MR"/>
-                                    <constraint firstItem="5Z0-d5-01a" firstAttribute="top" secondItem="3Ap-07-C51" secondAttribute="bottom" constant="16" id="wSJ-xM-dJD"/>
-                                </constraints>
-                            </view>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="83m-B5-asE" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="KiS-pf-kyF"/>
-                            <constraint firstItem="83m-B5-asE" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="N3y-sT-c3n"/>
-                            <constraint firstItem="83m-B5-asE" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="3" id="err-mS-Jds"/>
-                            <constraint firstAttribute="trailing" secondItem="83m-B5-asE" secondAttribute="trailing" constant="3" id="uYj-r1-bKQ"/>
+                            <constraint firstItem="hKj-Gx-s0v" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="BxU-dq-edH"/>
+                            <constraint firstItem="hKj-Gx-s0v" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="64" id="Ncq-Xc-2x8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hKj-Gx-s0v" secondAttribute="trailing" constant="64" id="PQz-uA-CKd"/>
+                            <constraint firstItem="hKj-Gx-s0v" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="y5G-2k-887"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -127,4 +84,9 @@
             <point key="canvasLocation" x="135" y="134"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
