@@ -14,10 +14,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        title = "MotionToastView"
     }
     
     @IBAction func successButt(_ sender: UIButton) {
-        MotionToast(message: "تمت اضافة المنتج الى السلة بنجاحتمت اضافة المنتج الى السلة بنجاحتمت اضافة المنتج الى السلة بنجاحتمت اضافة المنتج الى السلة بنجاح", toastType: .success, toastGravity: .center)
+        MotionToast(message: "تمت اضافة المنتج الى السلة بنجاحتمت اضافة المنتج الى السلة بنجاحتمت اضافة المنتج الى السلة بنجاحتمت اضافة المنتج الى السلة بنجاح", toastType: .success, toastGravity: .top)
     }
     
     @IBAction func errorButt(_ sender: UIButton) {

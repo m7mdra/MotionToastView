@@ -9,7 +9,7 @@
 import UIKit
 
 
-extension UIViewController {
+public extension UIViewController {
     
     public func MotionToast(title: String? = nil, message: String, toastType: ToastType, duration: ToastDuration = .short, toastGravity: ToastGravity = .bottom, toastCornerRadius: CGFloat = 25, pulseEffect: Bool = false) {
         
@@ -37,7 +37,6 @@ extension UIViewController {
                                                 pulseEffect: pulseEffect);
         
         window.addSubview(toastView)
-        window.bringSubviewToFront(toastView)
         UIView.animate(withDuration: 0.5, delay: toastDuration, options: .preferredFramesPerSecond60, animations: {
             toastView.alpha = 0
             generateHapticFeedback(for: toastType)

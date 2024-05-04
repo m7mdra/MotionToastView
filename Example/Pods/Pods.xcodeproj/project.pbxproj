@@ -10,7 +10,6 @@
 		055A679BDEB4A5334DFC7B1FBF5984D5 /* MotionToastView-MotionToastView in Resources */ = {isa = PBXBuildFile; fileRef = DCFB0F0C91D0985BD14A432AC4787C38 /* MotionToastView-MotionToastView */; };
 		0563F7B2B313D3803029E1FAE24DDCFD /* Classes in Resources */ = {isa = PBXBuildFile; fileRef = 76B2FEEBFFDBD30E2E49858032DF3225 /* Classes */; };
 		0B212DFEE107C8FE5AE28502C73BCA1E /* MotionToastView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3249CB99A4083DF0820B0B4D2AF9DD /* MotionToastView-dummy.m */; };
-		11101245A1C1FA856A3FCA0262B0BBC1 /* MotionToastView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 4A82F7DA262F55E4B3EB4A2E7D04C3D7 /* MotionToastView.xib */; };
 		13AF88A8FCAA023F9BA22EA26FF1C131 /* MotionToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43694A047D0AC3FA3659EA7EBB203860 /* MotionToastView.swift */; };
 		1EA20E59573C8C3510A10BDDEE24CFCC /* Tajawal-ExtraLight.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 726AA1ABE2076F53E24765F9F8609F78 /* Tajawal-ExtraLight.ttf */; };
 		2B512F291339BA74938F1A3DC56A7415 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B309DCAEB914E64CEB44977D50A73DB /* Fonts.swift */; };
@@ -23,6 +22,8 @@
 		73388971E9400D16F67578659C3A1A03 /* Tajawal-Black.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BFBEF1C980D59EAD99E828D55D5AA /* Tajawal-Black.ttf */; };
 		7F9546B9CC736532E14B1CF9962A4AA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		88F872FB449232B05C6138D676E13E92 /* Tajawal-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B635A3EE4BEC83DFBE475386786B591 /* Tajawal-Medium.ttf */; };
+		9441F8712BE66AC800F1A104 /* MotionToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9441F8702BE66AC800F1A104 /* MotionToastManager.swift */; };
+		9441F8752BE66BAD00F1A104 /* UIWindow+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9441F8742BE66BAD00F1A104 /* UIWindow+Extensions.swift */; };
 		995112FBEAC48B607477E436BB7E5DB4 /* Tajawal-Bold.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 820C931918F317F87184EFB54F8B0D05 /* Tajawal-Bold.ttf */; };
 		9C695B9BD3D46755B8F4D5DC642FC807 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14DB932F7C3E3195740F0B8D037D81B2 /* Assets.xcassets */; };
 		9F8428E6A98E2C580C359F9D0F6EDD96 /* Tajawal-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A0B8922A423A46124ABCAEC5C8D04B0 /* Tajawal-ExtraBold.ttf */; };
@@ -70,40 +71,41 @@
 /* Begin PBXFileReference section */
 		0419D937C32235E777771A9339CE70A6 /* Pods-MotionToastView_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MotionToastView_Tests-Info.plist"; sourceTree = "<group>"; };
 		078209C791AD1FD37E74872CA35041C2 /* Pods-MotionToastView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MotionToastView_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		11CA1F9B159A5FA98BC5D6F4EFDE8A5C /* Tajawal-Light.ttf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Tajawal-Light.ttf"; sourceTree = "<group>"; };
+		11CA1F9B159A5FA98BC5D6F4EFDE8A5C /* Tajawal-Light.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Tajawal-Light.ttf"; sourceTree = "<group>"; };
 		14DB932F7C3E3195740F0B8D037D81B2 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		245F5E6052CFF22C79ECD561E2B53BA9 /* Pods-MotionToastView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MotionToastView_Example.release.xcconfig"; sourceTree = "<group>"; };
-		2D8BFBEF1C980D59EAD99E828D55D5AA /* Tajawal-Black.ttf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Tajawal-Black.ttf"; sourceTree = "<group>"; };
+		2D8BFBEF1C980D59EAD99E828D55D5AA /* Tajawal-Black.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Tajawal-Black.ttf"; sourceTree = "<group>"; };
 		38A3513EC3A725289F65383264734C4E /* MotionToastView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MotionToastView.release.xcconfig; sourceTree = "<group>"; };
 		3A0884BDA40E854D4F6FEE47C2967218 /* Pods-MotionToastView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MotionToastView_Example-umbrella.h"; sourceTree = "<group>"; };
 		3CD47CC56AB30A6CA2F70DD8DFFA98E3 /* Pods-MotionToastView_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MotionToastView_Example-Info.plist"; sourceTree = "<group>"; };
 		43694A047D0AC3FA3659EA7EBB203860 /* MotionToastView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MotionToastView.swift; path = Source/MotionToastView.swift; sourceTree = "<group>"; };
 		448740457A66D530C716E215CFA29D09 /* Pods-MotionToastView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MotionToastView_Example.modulemap"; sourceTree = "<group>"; };
-		4A0212EE07379EE84C4F3BDA995FF27B /* Assets */ = {isa = PBXFileReference; includeInIndex = 1; path = Assets; sourceTree = "<group>"; };
-		4A0B8922A423A46124ABCAEC5C8D04B0 /* Tajawal-ExtraBold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Tajawal-ExtraBold.ttf"; sourceTree = "<group>"; };
-		4A82F7DA262F55E4B3EB4A2E7D04C3D7 /* MotionToastView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = MotionToastView.xib; path = Source/MotionToastView.xib; sourceTree = "<group>"; };
-		4AF6989316E5B9EFAEA05DDF1D783DA2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		4A0212EE07379EE84C4F3BDA995FF27B /* Assets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		4A0B8922A423A46124ABCAEC5C8D04B0 /* Tajawal-ExtraBold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Tajawal-ExtraBold.ttf"; sourceTree = "<group>"; };
+		4AF6989316E5B9EFAEA05DDF1D783DA2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4FD9093ABA28C24C0D87D4925FB0D434 /* Pods-MotionToastView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MotionToastView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		543B0F4261443ECF4EC3D6CB87F20057 /* MotionToastView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MotionToastView.modulemap; sourceTree = "<group>"; };
-		548B00B85B976061967A80BA19E1614D /* Tajawal-Regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Tajawal-Regular.ttf"; sourceTree = "<group>"; };
+		548B00B85B976061967A80BA19E1614D /* Tajawal-Regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Tajawal-Regular.ttf"; sourceTree = "<group>"; };
 		63556D3F9B78112AB0F6F8F4951E50E5 /* Pods-MotionToastView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MotionToastView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		65D117EDEB1B7852B832DE5B80367191 /* MotionToastView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MotionToastView-umbrella.h"; sourceTree = "<group>"; };
 		68496A49D1A9D72F11811C9B333730AD /* ToastDuration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToastDuration.swift; path = Source/ToastDuration.swift; sourceTree = "<group>"; };
-		69C8E998B92EFBA5659767CD6AEEEF3A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		726AA1ABE2076F53E24765F9F8609F78 /* Tajawal-ExtraLight.ttf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Tajawal-ExtraLight.ttf"; sourceTree = "<group>"; };
+		69C8E998B92EFBA5659767CD6AEEEF3A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		726AA1ABE2076F53E24765F9F8609F78 /* Tajawal-ExtraLight.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Tajawal-ExtraLight.ttf"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		73A1A5A03D854B79337B5BCA6C56579B /* MotionToastView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MotionToastView.debug.xcconfig; sourceTree = "<group>"; };
 		75AAAAE2F4076B21425008E76A889A4F /* Pods-MotionToastView_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-MotionToastView_Example"; path = Pods_MotionToastView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		76B2FEEBFFDBD30E2E49858032DF3225 /* Classes */ = {isa = PBXFileReference; includeInIndex = 1; path = Classes; sourceTree = "<group>"; };
+		76B2FEEBFFDBD30E2E49858032DF3225 /* Classes */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = Classes; sourceTree = "<group>"; };
 		780A31969A189690A2AD7A7533511818 /* Pods-MotionToastView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MotionToastView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		7F3249CB99A4083DF0820B0B4D2AF9DD /* MotionToastView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MotionToastView-dummy.m"; sourceTree = "<group>"; };
-		820C931918F317F87184EFB54F8B0D05 /* Tajawal-Bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Tajawal-Bold.ttf"; sourceTree = "<group>"; };
-		8B635A3EE4BEC83DFBE475386786B591 /* Tajawal-Medium.ttf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Tajawal-Medium.ttf"; sourceTree = "<group>"; };
+		820C931918F317F87184EFB54F8B0D05 /* Tajawal-Bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Tajawal-Bold.ttf"; sourceTree = "<group>"; };
+		8B635A3EE4BEC83DFBE475386786B591 /* Tajawal-Medium.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Tajawal-Medium.ttf"; sourceTree = "<group>"; };
 		8F1889FDCA422B3F1A4FFF24AA88F419 /* Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = Source/Extension.swift; sourceTree = "<group>"; };
+		9441F8702BE66AC800F1A104 /* MotionToastManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MotionToastManager.swift; path = Source/MotionToastManager.swift; sourceTree = "<group>"; };
+		9441F8742BE66BAD00F1A104 /* UIWindow+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIWindow+Extensions.swift"; path = "Source/UIWindow+Extensions.swift"; sourceTree = "<group>"; };
 		9650E5A6D40E7CF40301D3D12A2696CA /* MotionToastView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MotionToastView-prefix.pch"; sourceTree = "<group>"; };
 		968B94F8ABB3D22CEAC08137693493B8 /* ToastType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToastType.swift; path = Source/ToastType.swift; sourceTree = "<group>"; };
 		9B309DCAEB914E64CEB44977D50A73DB /* Fonts.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Fonts.swift; path = Source/Fonts.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9EBE7D0B134E4BE87CC93DBF06378FD4 /* Pods-MotionToastView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MotionToastView_Example-dummy.m"; sourceTree = "<group>"; };
 		BAD556380728939919275BA69393F4BE /* Pods-MotionToastView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MotionToastView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C2DB8587F9EA840BFDA0B46D6A6E6F4A /* Pods-MotionToastView_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-MotionToastView_Tests"; path = Pods_MotionToastView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,7 +115,7 @@
 		D8702293267199DE379F719391473ED4 /* Pods-MotionToastView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MotionToastView_Example-frameworks.sh"; sourceTree = "<group>"; };
 		DBE7885F63671799B1C2441F8992FB9C /* Pods-MotionToastView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MotionToastView_Tests-dummy.m"; sourceTree = "<group>"; };
 		DCFB0F0C91D0985BD14A432AC4787C38 /* MotionToastView-MotionToastView */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "MotionToastView-MotionToastView"; path = MotionToastView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		E637A315F56536E6156814640D1AADFA /* MotionToastView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = MotionToastView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E637A315F56536E6156814640D1AADFA /* MotionToastView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = MotionToastView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		EF5776D2842F02C0EF153277AF67872F /* Pods-MotionToastView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MotionToastView_Tests-umbrella.h"; sourceTree = "<group>"; };
 		EF9083BFE2992F35D88307A114C444EA /* ToastGravity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToastGravity.swift; path = Source/ToastGravity.swift; sourceTree = "<group>"; };
 		F37B8B38EFBFACAC18E6E74F1657BF0A /* Pods-MotionToastView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MotionToastView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -174,7 +176,6 @@
 				14DB932F7C3E3195740F0B8D037D81B2 /* Assets.xcassets */,
 				76B2FEEBFFDBD30E2E49858032DF3225 /* Classes */,
 			);
-			name = MotionToastView;
 			path = MotionToastView;
 			sourceTree = "<group>";
 		};
@@ -190,10 +191,11 @@
 		30ECD895207A19973F5B3684F1008C3B /* MotionToastView */ = {
 			isa = PBXGroup;
 			children = (
+				9441F8742BE66BAD00F1A104 /* UIWindow+Extensions.swift */,
+				9441F8702BE66AC800F1A104 /* MotionToastManager.swift */,
 				8F1889FDCA422B3F1A4FFF24AA88F419 /* Extension.swift */,
 				9B309DCAEB914E64CEB44977D50A73DB /* Fonts.swift */,
 				43694A047D0AC3FA3659EA7EBB203860 /* MotionToastView.swift */,
-				4A82F7DA262F55E4B3EB4A2E7D04C3D7 /* MotionToastView.xib */,
 				68496A49D1A9D72F11811C9B333730AD /* ToastDuration.swift */,
 				EF9083BFE2992F35D88307A114C444EA /* ToastGravity.swift */,
 				968B94F8ABB3D22CEAC08137693493B8 /* ToastType.swift */,
@@ -499,8 +501,8 @@
 				CEFEBB9C3C4CDA68671184A3D8CD7212 /* Extension.swift in Sources */,
 				2B512F291339BA74938F1A3DC56A7415 /* Fonts.swift in Sources */,
 				13AF88A8FCAA023F9BA22EA26FF1C131 /* MotionToastView.swift in Sources */,
-				11101245A1C1FA856A3FCA0262B0BBC1 /* MotionToastView.xib in Sources */,
 				0B212DFEE107C8FE5AE28502C73BCA1E /* MotionToastView-dummy.m in Sources */,
+				9441F8752BE66BAD00F1A104 /* UIWindow+Extensions.swift in Sources */,
 				73388971E9400D16F67578659C3A1A03 /* Tajawal-Black.ttf in Sources */,
 				995112FBEAC48B607477E436BB7E5DB4 /* Tajawal-Bold.ttf in Sources */,
 				B1A77F5A9B031F7BF7CA840ABFDE8538 /* Tajawal-ExtraBold.ttf in Sources */,
@@ -511,6 +513,7 @@
 				CB1D4D55EB19AC3BF197702E7E6AEF71 /* ToastDuration.swift in Sources */,
 				AFA34EE1AC8E1BE18C6A45C4BE445DE0 /* ToastGravity.swift in Sources */,
 				EB66D0F54B061EB8C6320A96734B6AF7 /* ToastType.swift in Sources */,
+				9441F8712BE66AC800F1A104 /* MotionToastManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -835,8 +838,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

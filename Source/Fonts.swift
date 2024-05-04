@@ -23,11 +23,11 @@ public class Fonts: NSObject {
         public var font: UIFont {
             switch self{
             case .bold:
-                return UIFont(name: self.value, size: 15)!
+                return UIFont(name: self.value, size: 20)!
             case .medium:
                 return UIFont(name: self.value, size: 13)!
             case .regular:
-                return UIFont(name: self.value, size: 13)!
+                return UIFont(name: self.value, size: 18)!
                 
             }
         }

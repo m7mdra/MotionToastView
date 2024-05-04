@@ -9,19 +9,92 @@
 import UIKit
 
 class MotionToastView: UIView {
+    var type: ToastType!
+    var gravity: ToastGravity!
+    var duration: ToastDuration!
+    var title: String!
+    var message: String!
     
-    @IBOutlet weak var headLabel: UILabel!
-    @IBOutlet weak var msgLabel: UILabel!
-    @IBOutlet weak var circleView: UIView!
-    @IBOutlet weak var circleImg: UIImageView!
-    @IBOutlet weak var toastView: UIView!
+    private lazy var parentView: UIView = {
+        let view = UIView()
+        view.contentMode = .scaleToFill
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(cgColor: CGColor(genericGrayGamma2_2Gray: 0.0, alpha: 0.0))
+        return view
+    }()
     
-    @IBOutlet weak var parentView: UIView!
+    private lazy var toastView: UIView = {
+        let view = UIView()
+        view.contentMode = .scaleToFill
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(cgColor: CGColor(srgbRed: 0.43529411759999997, green: 0.81568627449999997, blue: 0.58823529409999997, alpha: 0.20000000000000001))
+        return view
+    }()
+    
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.contentMode = .scaleToFill
+        stackView.axis = .vertical
+        stackView.spacing = 4
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    private lazy var circleView: UIView = {
+        let view = UIView()
+        view.contentMode = .scaleToFill
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 25
+
+        return view
+    }()
+    
+    private lazy var circleImg: UIImageView = {
+        let imageView = UIImageView()
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return imageView
+    }()
+    
+    lazy var headLabel: UILabel = {
+        let label = UILabel()
+        label.contentMode = .left
+        label.text = ""
+        label.textAlignment = .natural
+        label.lineBreakMode = .byTruncatingTail
+        label.baselineAdjustment = .alignBaselines
+        label.adjustsFontSizeToFitWidth = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "Tajawal-Bold", size: 16)
+        label.textColor = UIColor(named: "black_white")
+        return label
+    }()
+    
+    lazy var msgLabel: UILabel = {
+        let label = UILabel()
+        label.contentMode = .left
+        label.text = ""
+        label.textAlignment = .natural
+        label.lineBreakMode = .byTruncatingTail
+        label.numberOfLines = 2
+        label.baselineAdjustment = .alignBaselines
+        label.adjustsFontSizeToFitWidth = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "Tajawal-Medium", size: 14)
+        label.textColor = UIColor(named: "black_white")
+        return label
+    }()
+    
+
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
-
+        
     }
+
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -30,12 +103,52 @@ class MotionToastView: UIView {
     
     func commonInit() {
         Fonts.loadFonts()
-        let bundle = Bundle(for: MotionToastView.self)
-        let viewFromXib = bundle.loadNibNamed("MotionToastView", owner: self, options: nil)![0] as! UIView
-        viewFromXib.frame = self.bounds
-        isUserInteractionEnabled = true
-        addSubview(viewFromXib)
-        circleView.layer.cornerRadius = circleView.bounds.size.width/2
+        addSubViews()
+        createConstraints()
+    }
+    
+    private func addSubViews(){
+        addSubview(parentView)
+        parentView.addSubview(toastView)
+        toastView.addSubview(stackView)
+        toastView.addSubview(circleView)
+        stackView.addArrangedSubview(headLabel)
+        stackView.addArrangedSubview(msgLabel)
+        circleView.addSubview(circleImg)
+
+    }
+    
+    private func createConstraints(){
+        NSLayoutConstraint.activate([
+            circleImg.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
+            circleImg.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
+            circleImg.widthAnchor.constraint(equalToConstant: 25),
+            circleImg.heightAnchor.constraint(equalToConstant: 25),
+            
+            circleView.topAnchor.constraint(equalTo: toastView.topAnchor, constant: 9),
+            circleView.bottomAnchor.constraint(equalTo: toastView.bottomAnchor, constant: -9),
+            circleView.leadingAnchor.constraint(equalTo: toastView.leadingAnchor, constant: 20),
+            circleView.centerYAnchor.constraint(equalTo: toastView.centerYAnchor),
+            circleView.widthAnchor.constraint(equalToConstant: 45),
+            
+            stackView.topAnchor.constraint(equalTo: toastView.topAnchor, constant: 15.5),
+            stackView.bottomAnchor.constraint(equalTo: toastView.bottomAnchor, constant: -15.5),
+            stackView.leadingAnchor.constraint(equalTo: circleView.trailingAnchor, constant: 8),
+            stackView.trailingAnchor.constraint(equalTo: toastView.trailingAnchor, constant: -20),
+            stackView.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
+            
+            toastView.topAnchor.constraint(equalTo: parentView.topAnchor),
+            toastView.bottomAnchor.constraint(equalTo: parentView.bottomAnchor),
+            toastView.leadingAnchor.constraint(equalTo: parentView.leadingAnchor),
+            toastView.trailingAnchor.constraint(equalTo: parentView.trailingAnchor),
+            
+            parentView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            parentView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            parentView.heightAnchor.constraint(lessThanOrEqualToConstant: 80),
+            parentView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10)
+
+            
+        ])
 
     }
     
@@ -54,24 +167,11 @@ class MotionToastView: UIView {
         removeFromSuperview()
     }
     
-   
-    @objc func didTapView() {
-        print("tap action")
-    }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        print(#function)
-    }
+
     func setupViews(toastType: ToastType, cornerRadius: CGFloat) {
         
         toastView.layer.cornerRadius = cornerRadius
-        toastView.layer.borderWidth = 1
-    
-        
-        //TODO: load custom fonts
-//        headLabel.font = Fonts.Style.bold.font
-//        headLabel.font = Fonts.Style.regular.font
-
+        toastView.layer.borderWidth = 1.5
         switch toastType {
         case .success:
             circleImg.image = loadImage(name: "success_icon")
@@ -95,9 +195,9 @@ class MotionToastView: UIView {
             circleView.backgroundColor = loadColor(name: "error_circle")
             toastView.backgroundColor = loadColor(name: "error_background")
             toastView.layer.borderColor = loadColor(name: "error_circle")?.cgColor
-
+            
             break
-
+            
         }
     }
     
