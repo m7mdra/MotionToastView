@@ -9,12 +9,7 @@
 import UIKit
 
 class MotionToastView: UIView {
-    var type: ToastType!
-    var gravity: ToastGravity!
-    var duration: ToastDuration!
-    var title: String!
-    var message: String!
-    
+
     private lazy var parentView: UIView = {
         let view = UIView()
         view.contentMode = .scaleToFill
@@ -82,12 +77,10 @@ class MotionToastView: UIView {
         label.baselineAdjustment = .alignBaselines
         label.adjustsFontSizeToFitWidth = false
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Tajawal-Medium", size: 14)
+        label.font = UIFont(name: "Tajawal-Medium", size: 15)
         label.textColor = UIColor(named: "black_white")
         return label
     }()
-    
-
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -142,9 +135,9 @@ class MotionToastView: UIView {
             toastView.leadingAnchor.constraint(equalTo: parentView.leadingAnchor),
             toastView.trailingAnchor.constraint(equalTo: parentView.trailingAnchor),
             
-            parentView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            parentView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            parentView.heightAnchor.constraint(lessThanOrEqualToConstant: 80),
+            parentView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            parentView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            parentView.heightAnchor.constraint(lessThanOrEqualToConstant: 83),
             parentView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10)
 
             
@@ -200,7 +193,20 @@ class MotionToastView: UIView {
             
         }
     }
+    func show(withDuration duration: TimeInterval) {
+        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
+            self.alpha = 1.0
+        }, completion: nil)
+    }
     
+    func dismiss(withDuration duration: TimeInterval, completion: (() -> Void)?) {
+        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
+            self.alpha = 0.0
+        }, completion: { _ in
+            completion?()
+        })
+    }
+
     func loadImage(name: String) -> UIImage? {
         let podBundle = Bundle(for: MotionToastView.self)
         if let url = podBundle.url(forResource: "MotionToastView", withExtension: "bundle") {

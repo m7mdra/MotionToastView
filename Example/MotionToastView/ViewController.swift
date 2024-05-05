@@ -18,28 +18,31 @@ class ViewController: UIViewController {
     }
     
     @IBAction func successButt(_ sender: UIButton) {
-        MotionToast(message: "تمت اضافة المنتج الى السلة بنجاحتمت اضافة المنتج الى السلة بنجاحتمت اضافة المنتج الى السلة بنجاحتمت اضافة المنتج الى السلة بنجاح", toastType: .success, toastGravity: .top)
+        MotionToastManager.shared.show(message: "تمت اضافة المنتج الى السلة بنجاح تمت اضافة المنتج الى السلة بنجاح", toastType: .success, toastGravity: .top)
     }
     
     @IBAction func errorButt(_ sender: UIButton) {
-        MotionToast(title: "Title here", message: "You have failed to complete the trip", toastType: .error, toastGravity: .bottom)
+        MotionToastManager.shared.show(title: "Title here", message: "You have failed to complete the trip",
+                                       toastType: .error, toastGravity: .bottom)
     }
     
     @IBAction func warningButt(_ sender: UIButton) {
-        MotionToast(title: "Title here", message: "You are not in the location. Try again", toastType: .warning, duration: .long, toastGravity: .top, toastCornerRadius: 30, pulseEffect: false)
+        MotionToastManager.shared.show(title: "Title here", message: "You are not in the location. Try again",
+                                       toastType: .warning, duration: .long, toastGravity: .center, toastCornerRadius: 30)
     }
     
     @IBAction func infoButt(_ sender: UIButton) {
-        MotionToast(title: "Title here", message: "You are not in the location. Try again", toastType: .noConnection, duration: .long, toastGravity: .top, toastCornerRadius: 30, pulseEffect: false)
+        MotionToastManager.shared.show(title: "Title here", message: "You are not in the location. Try again", 
+                                       toastType: .noConnection, duration: .long, toastGravity: .top, toastCornerRadius: 30)
     }
 
     @IBAction func didTapDismissButton(_ sender: Any) {
-        
+        MotionToastManager.shared.dismissAll()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+       
     }
 
 }

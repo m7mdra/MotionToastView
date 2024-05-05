@@ -214,11 +214,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = GY8LXNR38D;
+						DevelopmentTeam = 9P95MPG9Y3;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 9P95MPG9Y3;
 						LastSwiftMigration = 1150;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -491,7 +492,7 @@
 			baseConfigurationReference = 78A5FE4D9A7DF331BD5A663F /* Pods-MotionToastView_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GY8LXNR38D;
+				DEVELOPMENT_TEAM = 9P95MPG9Y3;
 				INFOPLIST_FILE = MotionToastView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -507,7 +508,7 @@
 			baseConfigurationReference = 425C8C17A40C1432000BE593 /* Pods-MotionToastView_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GY8LXNR38D;
+				DEVELOPMENT_TEAM = 9P95MPG9Y3;
 				INFOPLIST_FILE = MotionToastView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -522,6 +523,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9DA742C2DE612A5712C05683 /* Pods-MotionToastView_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 9P95MPG9Y3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -544,6 +546,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 52A2F0EFC9F95055449D42DC /* Pods-MotionToastView_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 9P95MPG9Y3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
