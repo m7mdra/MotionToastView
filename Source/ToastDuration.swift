@@ -7,7 +7,9 @@
 
 import Foundation
 
-public enum ToastDuration {
-    case short
-    case long
+public enum ToastDuration: Double {
+ 
+    
+    case short = 2.0
+    case long = 4.0
 }

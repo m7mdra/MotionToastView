@@ -9,12 +9,18 @@
 import UIKit
 
 class MotionToastView: UIView {
-
+    private var iconGravity : IconGravity!
+    private var toastGravity: ToastGravity!
+    private var toastType: ToastType!
+    private var title: String? = nil
+    private var message: String!
+    private var cornerRadius: CGFloat!
+    private var addPulsEffect:Bool = false
+    
     private lazy var parentView: UIView = {
         let view = UIView()
         view.contentMode = .scaleToFill
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(cgColor: CGColor(genericGrayGamma2_2Gray: 0.0, alpha: 0.0))
         return view
     }()
     
@@ -22,7 +28,7 @@ class MotionToastView: UIView {
         let view = UIView()
         view.contentMode = .scaleToFill
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(cgColor: CGColor(srgbRed: 0.43529411759999997, green: 0.81568627449999997, blue: 0.58823529409999997, alpha: 0.20000000000000001))
+
         return view
     }()
     
@@ -40,7 +46,7 @@ class MotionToastView: UIView {
         view.contentMode = .scaleToFill
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 25
-
+        
         return view
     }()
     
@@ -53,7 +59,7 @@ class MotionToastView: UIView {
         return imageView
     }()
     
-    lazy var headLabel: UILabel = {
+     lazy var headLabel: UILabel = {
         let label = UILabel()
         label.contentMode = .left
         label.text = ""
@@ -67,7 +73,7 @@ class MotionToastView: UIView {
         return label
     }()
     
-    lazy var msgLabel: UILabel = {
+     lazy var msgLabel: UILabel = {
         let label = UILabel()
         label.contentMode = .left
         label.text = ""
@@ -82,22 +88,45 @@ class MotionToastView: UIView {
         return label
     }()
     
+    
+    init(frame: CGRect, title: String? = nil, message: String!, toastType: ToastType, iconGravity: IconGravity = .leading, toastGravity: ToastGravity = .top, cornerRadius: CGFloat = 25, addPulsEffect:Bool = false){
+        
+        super.init(frame: frame)
+        self.toastType = toastType
+        self.iconGravity = iconGravity
+        self.toastGravity = toastGravity
+        self.title = title
+        self.message = message
+        self.cornerRadius = cornerRadius
+        self.addPulsEffect = addPulsEffect
+        
+        commonInit()
+    }
+    
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
         
     }
-
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }
     
-    func commonInit() {
+    private func commonInit() {
         Fonts.loadFonts()
         addSubViews()
         createConstraints()
+
+        setupViews()
+        
+        
+        
+        if addPulsEffect{
+            addPulseEffect()
+        }
     }
     
     private func addSubViews(){
@@ -108,27 +137,96 @@ class MotionToastView: UIView {
         stackView.addArrangedSubview(headLabel)
         stackView.addArrangedSubview(msgLabel)
         circleView.addSubview(circleImg)
-
+        
     }
-    
+  
+
     private func createConstraints(){
+
+
+        switch iconGravity {
+        case .leading:
+            let circleViewtopAnchor = circleView.topAnchor.constraint(equalTo: toastView.topAnchor, constant: 9)
+            circleViewtopAnchor.identifier = "circleViewtopAnchor"
+            let circleViewbottomAnchor = circleView.bottomAnchor.constraint(equalTo: toastView.bottomAnchor, constant: -9)
+            circleViewbottomAnchor.identifier = "circleViewbottomAnchor"
+            let circleViewleadingAnchor = circleView.leadingAnchor.constraint(equalTo: toastView.leadingAnchor, constant: 20)
+            circleViewleadingAnchor.identifier = "circleViewleadingAnchor"
+            let circleViewcenterYAnchor = circleView.centerYAnchor.constraint(equalTo: toastView.centerYAnchor)
+            circleViewcenterYAnchor.identifier = "circleViewcenterYAnchor"
+            let circleViewwidthAnchor = circleView.widthAnchor.constraint(equalToConstant: 45)
+            circleViewwidthAnchor.identifier = "circleViewwidthAnchor"
+            
+            let stackViewtopAnchor = stackView.topAnchor.constraint(equalTo: toastView.topAnchor, constant: 15.5)
+            stackViewtopAnchor.identifier = "stackViewtopAnchor"
+            let stackViewbottomAnchor = stackView.bottomAnchor.constraint(equalTo: toastView.bottomAnchor, constant: -15.5)
+            stackViewbottomAnchor.identifier = "stackViewbottomAnchor"
+            let stackViewleadingAnchor = stackView.leadingAnchor.constraint(equalTo: circleView.trailingAnchor, constant: 16)
+            stackViewleadingAnchor.identifier = "stackViewleadingAnchor"
+            let stackViewtrailingAnchor = stackView.trailingAnchor.constraint(equalTo: toastView.trailingAnchor, constant: -20)
+            stackViewtrailingAnchor.identifier = "stackViewtrailingAnchor"
+            let stackViewcenterYAnchor = stackView.centerYAnchor.constraint(equalTo: circleView.centerYAnchor)
+            stackViewcenterYAnchor.identifier = "stackViewcenterYAnchor"
+
+            NSLayoutConstraint.activate([
+                circleImg.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
+                circleImg.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
+                circleImg.widthAnchor.constraint(equalToConstant: 25),
+                circleImg.heightAnchor.constraint(equalToConstant: 25),
+                circleViewtopAnchor,
+                circleViewbottomAnchor,
+                circleViewleadingAnchor,
+                circleViewcenterYAnchor,
+                circleViewwidthAnchor,
+                stackViewtopAnchor,
+                stackViewbottomAnchor,
+                stackViewleadingAnchor,
+                stackViewtrailingAnchor,
+                stackViewcenterYAnchor
+                
+            ])
+        case .trailing:
+            let circleViewtopAnchor = circleView.topAnchor.constraint(equalTo: toastView.topAnchor, constant: 9)
+            circleViewtopAnchor.identifier = "circleViewtopAnchor1"
+            let circleViewbottomAnchor = circleView.bottomAnchor.constraint(equalTo: toastView.bottomAnchor, constant: -9)
+            circleViewbottomAnchor.identifier = "circleViewbottomAnchor1"
+            let circleViewtrailingAnchor = circleView.trailingAnchor.constraint(equalTo: toastView.trailingAnchor, constant: -20)
+            circleViewtrailingAnchor.identifier = "circleViewtrailingAnchor1"
+            let circleViewcenterYAnchor = circleView.centerYAnchor.constraint(equalTo: toastView.centerYAnchor)
+            circleViewcenterYAnchor.identifier = "circleViewcenterYAnchor1"
+            let circleViewwidthAnchor = circleView.widthAnchor.constraint(equalToConstant: 45)
+            circleViewwidthAnchor.identifier = "circleViewwidthAnchor1"
+            let stackViewtopAnchor = stackView.topAnchor.constraint(equalTo: toastView.topAnchor, constant: 15.5)
+            stackViewtopAnchor.identifier = "stackViewtopAnchor1"
+            let stackViewbottomAnchor = stackView.bottomAnchor.constraint(equalTo: toastView.bottomAnchor, constant: -15.5)
+            stackViewbottomAnchor.identifier = "stackViewbottomAnchor1"
+            let stackViewleadingAnchor = stackView.leadingAnchor.constraint(equalTo: toastView.leadingAnchor, constant: 16)
+            stackViewleadingAnchor.identifier = "stackViewleadingAnchor1"
+            let stackViewtrailingAnchor = stackView.trailingAnchor.constraint(equalTo: circleView.leadingAnchor, constant: 20)
+            stackViewtrailingAnchor.identifier = "stackViewtrailingAnchor1"
+            let stackViewcenterYAnchor = stackView.centerYAnchor.constraint(equalTo: circleView.centerYAnchor)
+            stackViewcenterYAnchor.identifier = "stackViewcenterYAnchor1"
+            
+            NSLayoutConstraint.activate([
+                circleImg.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
+                circleImg.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
+                circleImg.widthAnchor.constraint(equalToConstant: 25),
+                circleImg.heightAnchor.constraint(equalToConstant: 25),
+                circleViewtopAnchor,
+                circleViewbottomAnchor,
+                circleViewtrailingAnchor,
+                circleViewcenterYAnchor,
+                circleViewwidthAnchor,
+                stackViewtopAnchor,
+                stackViewbottomAnchor,
+                stackViewleadingAnchor,
+                stackViewtrailingAnchor,
+                stackViewcenterYAnchor
+            ])
+        case .none:
+            break
+        }
         NSLayoutConstraint.activate([
-            circleImg.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
-            circleImg.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
-            circleImg.widthAnchor.constraint(equalToConstant: 25),
-            circleImg.heightAnchor.constraint(equalToConstant: 25),
-            
-            circleView.topAnchor.constraint(equalTo: toastView.topAnchor, constant: 9),
-            circleView.bottomAnchor.constraint(equalTo: toastView.bottomAnchor, constant: -9),
-            circleView.leadingAnchor.constraint(equalTo: toastView.leadingAnchor, constant: 20),
-            circleView.centerYAnchor.constraint(equalTo: toastView.centerYAnchor),
-            circleView.widthAnchor.constraint(equalToConstant: 45),
-            
-            stackView.topAnchor.constraint(equalTo: toastView.topAnchor, constant: 15.5),
-            stackView.bottomAnchor.constraint(equalTo: toastView.bottomAnchor, constant: -15.5),
-            stackView.leadingAnchor.constraint(equalTo: circleView.trailingAnchor, constant: 8),
-            stackView.trailingAnchor.constraint(equalTo: toastView.trailingAnchor, constant: -20),
-            stackView.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
             
             toastView.topAnchor.constraint(equalTo: parentView.topAnchor),
             toastView.bottomAnchor.constraint(equalTo: parentView.bottomAnchor),
@@ -145,7 +243,7 @@ class MotionToastView: UIView {
 
     }
     
-    func addPulseEffect() {
+     func addPulseEffect() {
         let pulseAnimation = CABasicAnimation(keyPath: "transform.scale")
         pulseAnimation.duration = 1
         pulseAnimation.fromValue = 0.7
@@ -161,16 +259,24 @@ class MotionToastView: UIView {
     }
     
 
-    func setupViews(toastType: ToastType, cornerRadius: CGFloat) {
+    private func setupViews() {
         
         toastView.layer.cornerRadius = cornerRadius
         toastView.layer.borderWidth = 1.5
+        msgLabel.text = message
+        headLabel.text = title
         switch toastType {
         case .success:
             circleImg.image = loadImage(name: "success_icon")
             circleView.backgroundColor = loadColor(name: "success_circle")
             toastView.backgroundColor = loadColor(name: "success_background")
             toastView.layer.borderColor = loadColor(name: "success_circle")?.cgColor
+            break
+        case .success2:
+            circleImg.image = loadImage(name: "success_icon2")
+            circleView.backgroundColor = loadColor(name: "success_circle2")
+            toastView.backgroundColor = loadColor(name: "success_background2")
+            toastView.layer.borderColor = loadColor(name: "success_circle2")?.cgColor
             break
         case .error:
             circleImg.image = loadImage(name: "error_icon")
@@ -190,7 +296,9 @@ class MotionToastView: UIView {
             toastView.layer.borderColor = loadColor(name: "error_circle")?.cgColor
             
             break
-            
+
+        case .none:
+            break
         }
     }
     func show(withDuration duration: TimeInterval) {
@@ -206,8 +314,8 @@ class MotionToastView: UIView {
             completion?()
         })
     }
-
-    func loadImage(name: String) -> UIImage? {
+    
+    private func loadImage(name: String) -> UIImage? {
         let podBundle = Bundle(for: MotionToastView.self)
         if let url = podBundle.url(forResource: "MotionToastView", withExtension: "bundle") {
             let bundle = Bundle(url: url)
@@ -216,7 +324,7 @@ class MotionToastView: UIView {
         return nil
     }
     
-    func loadColor(name: String) -> UIColor? {
+    private func loadColor(name: String) -> UIColor? {
         let podBundle = Bundle(for: MotionToastView.self)
         if let url = podBundle.url(forResource: "MotionToastView", withExtension: "bundle") {
             let bundle = Bundle(url: url)
@@ -225,3 +333,4 @@ class MotionToastView: UIView {
         return nil
     }
 }
+

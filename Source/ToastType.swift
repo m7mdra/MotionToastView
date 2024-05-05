@@ -8,6 +8,7 @@
 import Foundation
 public enum ToastType {
     case success
+    case success2
     case error
     case warning
     case noConnection

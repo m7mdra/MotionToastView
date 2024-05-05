@@ -38,54 +38,50 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="hKj-Gx-s0v">
-                                <rect key="frame" x="80" y="214.5" width="215" height="238.5"/>
+                                <rect key="frame" x="80" y="189" width="215" height="289"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNT-NJ-rQf">
                                         <rect key="frame" x="0.0" y="0.0" width="215" height="35"/>
-                                        <color key="backgroundColor" red="0.56862745100000001" green="0.61176470589999998" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                        <state key="normal" title="Success">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
+                                        <state key="normal" title="Success"/>
                                         <connections>
                                             <action selector="successButt:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="iu9-aZ-XSi"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIy-9U-fFy">
+                                        <rect key="frame" x="0.0" y="51" width="215" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Success2"/>
+                                        <connections>
+                                            <action selector="successButt2:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Zob-Ne-TCr"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpX-xi-gRH">
-                                        <rect key="frame" x="0.0" y="51" width="215" height="35"/>
-                                        <color key="backgroundColor" red="0.56862745100000001" green="0.61176470589999998" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="101.5" width="215" height="35"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                        <state key="normal" title="Error">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
+                                        <state key="normal" title="Error"/>
                                         <connections>
                                             <action selector="errorButt:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uhP-Op-u1J"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ap-07-C51">
-                                        <rect key="frame" x="0.0" y="102" width="215" height="35"/>
-                                        <color key="backgroundColor" red="0.56862745100000001" green="0.61176470589999998" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="152.5" width="215" height="35"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                        <state key="normal" title="Warning">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
+                                        <state key="normal" title="Warning"/>
                                         <connections>
                                             <action selector="warningButt:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="d5d-ug-Ahu"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Z0-d5-01a">
-                                        <rect key="frame" x="0.0" y="153" width="215" height="35"/>
-                                        <color key="backgroundColor" red="0.56862745100000001" green="0.61176470589999998" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="203.5" width="215" height="35"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                        <state key="normal" title="No connection ">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
+                                        <state key="normal" title="No connection "/>
                                         <connections>
                                             <action selector="infoButt:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4Dx-uE-vjT"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zz6-Xw-gsD">
-                                        <rect key="frame" x="0.0" y="204" width="215" height="34.5"/>
+                                        <rect key="frame" x="0.0" y="254.5" width="215" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Dismiss"/>
                                         <connections>

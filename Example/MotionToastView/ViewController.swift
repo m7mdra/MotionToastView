@@ -18,22 +18,24 @@ class ViewController: UIViewController {
     }
     
     @IBAction func successButt(_ sender: UIButton) {
-        MotionToastManager.shared.show(message: "تمت اضافة المنتج الى السلة بنجاح تمت اضافة المنتج الى السلة بنجاح", toastType: .success, toastGravity: .top)
+        MotionToastManager.shared.showSuccess(message: "تمت اضافة المنتج الى السلة بنجاح تمت اضافة المنتج الى السلة بنجاح", toastGravity: .top, iconGravity: .leading)
+    }
+    @IBAction func successButt2(_ sender: Any) {
+        MotionToastManager.shared.showSuccess2(title:"تم ارسال الطلب بنجاح", message: "ميك آب ستيشن", toastGravity: .bottom,
+                                       toastCornerRadius: 4,
+                                       iconGravity: .trailing)
     }
     
     @IBAction func errorButt(_ sender: UIButton) {
-        MotionToastManager.shared.show(title: "Title here", message: "You have failed to complete the trip",
-                                       toastType: .error, toastGravity: .bottom)
+        MotionToastManager.shared.showError(title: "Title here", message: "You have failed to complete the trip", toastGravity: .bottom)
     }
     
     @IBAction func warningButt(_ sender: UIButton) {
-        MotionToastManager.shared.show(title: "Title here", message: "You are not in the location. Try again",
-                                       toastType: .warning, duration: .long, toastGravity: .center, toastCornerRadius: 30)
+        MotionToastManager.shared.showWarning(title: "Title here", message: "You are not in the location. Try again")
     }
     
     @IBAction func infoButt(_ sender: UIButton) {
-        MotionToastManager.shared.show(title: "Title here", message: "You are not in the location. Try again", 
-                                       toastType: .noConnection, duration: .long, toastGravity: .top, toastCornerRadius: 30)
+        MotionToastManager.shared.showNoConnection(title: "Title here", message: "You are not in the location. Try again")
     }
 
     @IBAction func didTapDismissButton(_ sender: Any) {

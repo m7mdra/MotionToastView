@@ -24,6 +24,7 @@
 		88F872FB449232B05C6138D676E13E92 /* Tajawal-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B635A3EE4BEC83DFBE475386786B591 /* Tajawal-Medium.ttf */; };
 		9441F8712BE66AC800F1A104 /* MotionToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9441F8702BE66AC800F1A104 /* MotionToastManager.swift */; };
 		9441F8752BE66BAD00F1A104 /* UIWindow+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9441F8742BE66BAD00F1A104 /* UIWindow+Extensions.swift */; };
+		9441F8792BE7E20600F1A104 /* IconGravity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9441F8782BE7E20600F1A104 /* IconGravity.swift */; };
 		995112FBEAC48B607477E436BB7E5DB4 /* Tajawal-Bold.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 820C931918F317F87184EFB54F8B0D05 /* Tajawal-Bold.ttf */; };
 		9C695B9BD3D46755B8F4D5DC642FC807 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14DB932F7C3E3195740F0B8D037D81B2 /* Assets.xcassets */; };
 		9F8428E6A98E2C580C359F9D0F6EDD96 /* Tajawal-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A0B8922A423A46124ABCAEC5C8D04B0 /* Tajawal-ExtraBold.ttf */; };
@@ -100,6 +101,7 @@
 		8B635A3EE4BEC83DFBE475386786B591 /* Tajawal-Medium.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Tajawal-Medium.ttf"; sourceTree = "<group>"; };
 		9441F8702BE66AC800F1A104 /* MotionToastManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MotionToastManager.swift; path = Source/MotionToastManager.swift; sourceTree = "<group>"; };
 		9441F8742BE66BAD00F1A104 /* UIWindow+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIWindow+Extensions.swift"; path = "Source/UIWindow+Extensions.swift"; sourceTree = "<group>"; };
+		9441F8782BE7E20600F1A104 /* IconGravity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IconGravity.swift; path = Source/IconGravity.swift; sourceTree = "<group>"; };
 		9650E5A6D40E7CF40301D3D12A2696CA /* MotionToastView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MotionToastView-prefix.pch"; sourceTree = "<group>"; };
 		968B94F8ABB3D22CEAC08137693493B8 /* ToastType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToastType.swift; path = Source/ToastType.swift; sourceTree = "<group>"; };
 		9B309DCAEB914E64CEB44977D50A73DB /* Fonts.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Fonts.swift; path = Source/Fonts.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 		30ECD895207A19973F5B3684F1008C3B /* MotionToastView */ = {
 			isa = PBXGroup;
 			children = (
+				9441F8782BE7E20600F1A104 /* IconGravity.swift */,
 				9441F8742BE66BAD00F1A104 /* UIWindow+Extensions.swift */,
 				9441F8702BE66AC800F1A104 /* MotionToastManager.swift */,
 				9B309DCAEB914E64CEB44977D50A73DB /* Fonts.swift */,
@@ -506,6 +509,7 @@
 				39DFBB1FB05C0407F0015CE68C7C2D51 /* Tajawal-Light.ttf in Sources */,
 				BD833855AEBE50E8146897936A25B18E /* Tajawal-Medium.ttf in Sources */,
 				391791048C518785B4B936F7C8358C6F /* Tajawal-Regular.ttf in Sources */,
+				9441F8792BE7E20600F1A104 /* IconGravity.swift in Sources */,
 				CB1D4D55EB19AC3BF197702E7E6AEF71 /* ToastDuration.swift in Sources */,
 				AFA34EE1AC8E1BE18C6A45C4BE445DE0 /* ToastGravity.swift in Sources */,
 				EB66D0F54B061EB8C6320A96734B6AF7 /* ToastType.swift in Sources */,

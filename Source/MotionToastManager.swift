@@ -11,27 +11,88 @@ public class MotionToastManager {
     public static let shared = MotionToastManager()
     private var currentToasts: [MotionToastView] = []
     
+    public func showError(title: String? = nil, message: String,
+                          duration: ToastDuration = .short,
+                          toastGravity: ToastGravity = .top,
+                          toastCornerRadius: CGFloat = 25,
+                          pulseEffect: Bool = false,
+                          iconGravity: IconGravity = IconGravity.leading){
+        show(title: title,
+             message: message,
+             toastType: .error,
+             toastGravity: toastGravity,
+             toastCornerRadius: toastCornerRadius,
+             pulseEffect: pulseEffect,
+             iconGravity: iconGravity)
+    }
+    public func showWarning(title: String? = nil, message: String,
+                            duration: ToastDuration = .short,
+                            toastGravity: ToastGravity = .top,
+                            toastCornerRadius: CGFloat = 25,
+                            pulseEffect: Bool = false,
+                            iconGravity: IconGravity = IconGravity.leading){
+        show(title: title,
+             message: message,
+             toastType: .warning,
+             toastGravity: toastGravity,
+             toastCornerRadius: toastCornerRadius,
+             pulseEffect: pulseEffect,
+             iconGravity: iconGravity)
+    }
+    public func showSuccess(title: String? = nil, message: String,
+                            duration: ToastDuration = .short,
+                            toastGravity: ToastGravity = .top,
+                            toastCornerRadius: CGFloat = 25,
+                            pulseEffect: Bool = false,
+                            iconGravity: IconGravity = IconGravity.leading){
+        show(title: title,
+             message: message,
+             toastType: .success,
+             toastGravity: toastGravity,
+             toastCornerRadius: toastCornerRadius,
+             pulseEffect: pulseEffect,
+             iconGravity: iconGravity)
+        
+    }
+    public func showSuccess2(title: String? = nil, message: String,
+                             duration: ToastDuration = .short,
+                             toastGravity: ToastGravity = .top,
+                             toastCornerRadius: CGFloat = 25,
+                             pulseEffect: Bool = false,
+                             iconGravity: IconGravity = IconGravity.leading){
+        show(title: title,
+             message: message,
+             toastType: .success2,
+             toastGravity: toastGravity,
+             toastCornerRadius: toastCornerRadius,
+             pulseEffect: pulseEffect,
+             iconGravity: iconGravity)
+    }
+    public func showNoConnection(title: String? = nil, message: String,
+                                 duration: ToastDuration = .short,
+                                 toastGravity: ToastGravity = .top,
+                                 toastCornerRadius: CGFloat = 25,
+                                 pulseEffect: Bool = false,
+                                 iconGravity: IconGravity = IconGravity.leading){
+        show(title: title,
+             message: message,
+             toastType: .noConnection,
+             toastGravity: toastGravity,
+             toastCornerRadius: toastCornerRadius,
+             pulseEffect: pulseEffect,
+             iconGravity: iconGravity)
+    }
+    
     public func show(title: String? = nil,
                      message: String,
                      toastType: ToastType,
                      duration: ToastDuration = .short,
-                     toastGravity: ToastGravity = .bottom,
+                     toastGravity: ToastGravity = .top,
                      toastCornerRadius: CGFloat = 25,
-                     pulseEffect: Bool = false) {
-        guard let window = UIApplication.shared.connectedScenes
-            .filter({$0.activationState == .foregroundActive})
-            .map({$0 as? UIWindowScene})
-            .compactMap({$0}).first?.windows.filter({$0.isKeyWindow})
-            .first else { return }
-        guard let view = window.topViewController()?.view else { return }
-        var toastDuration = 2.0
-        switch duration {
-        case .short:
-            toastDuration = 2.0
-        case .long:
-            toastDuration = 4.0
-            
-        }
+                     pulseEffect: Bool = false,
+                     iconGravity: IconGravity = IconGravity.leading) {
+        
+        guard let view = topView() else { return }
         
         let toastView = createToastView(title:title,
                                         message: message,
@@ -39,14 +100,21 @@ public class MotionToastManager {
                                         toastGravity: toastGravity,
                                         toastCornerRadius: toastCornerRadius,
                                         view: view,
-                                        pulseEffect: pulseEffect);
+                                        pulseEffect: pulseEffect,
+                                        iconGravity: iconGravity)
+        showToast(toastView: toastView, in: view, duration: duration,toastType: toastType)
+        
+        
+    }
+    private func showToast(toastView: MotionToastView, in view:UIView, duration: ToastDuration, toastType: ToastType){
+        
         currentToasts.append(toastView)
-        window.addSubview(toastView)
+        view.addSubview(toastView)
         self.generateHapticFeedback(for: toastType)
         
         toastView.show(withDuration: 0.5)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + toastDuration) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + duration.rawValue) {
             toastView.dismiss(withDuration: 0.5) {
                 if !self.currentToasts.isEmpty{
                     self.currentToasts.removeFirst()
@@ -54,9 +122,18 @@ public class MotionToastManager {
                 toastView.removeFromSuperview()
             }
         }
+        
     }
     
-
+    private func topView() -> UIView? {
+        guard let window = UIApplication.shared.connectedScenes
+            .filter({$0.activationState == .foregroundActive})
+            .map({$0 as? UIWindowScene})
+            .compactMap({$0}).first?.windows.filter({$0.isKeyWindow})
+            .first else { return nil }
+        return window.topViewController()?.view
+        
+    }
     public func dismissAll() {
         for toastView in currentToasts {
             toastView.dismiss()
@@ -70,8 +147,35 @@ public class MotionToastManager {
             currentToasts.removeFirst()
         }
     }
-
-    private func createToastView(title: String?, message: String, toastType: ToastType, toastGravity: ToastGravity, toastCornerRadius: CGFloat, view: UIView, pulseEffect: Bool) -> MotionToastView {
+    
+    private func createToastView(title: String?, message: String, toastType: ToastType, toastGravity: ToastGravity, toastCornerRadius: CGFloat, view: UIView, pulseEffect: Bool, iconGravity: IconGravity) -> MotionToastView {
+        let frame = calculateFrameFromGravity(toastGravity, view)
+        let toastView = MotionToastView(
+            frame: frame,
+            title: title,
+            message: message,
+            toastType: toastType,
+            iconGravity: iconGravity,
+            toastGravity: toastGravity,
+            cornerRadius: toastCornerRadius,
+            addPulsEffect: pulseEffect)
+        return toastView
+    }
+    
+    private func generateHapticFeedback(for type: ToastType) {
+        let generator = UINotificationFeedbackGenerator()
+        generator.prepare()
+        switch type {
+        case .success, .success2:
+            generator.notificationOccurred(.success)
+        case .error:
+            generator.notificationOccurred(.error)
+        case .warning, .noConnection:
+            generator.notificationOccurred(.warning)
+        }
+    }
+    
+    private func calculateFrameFromGravity(_ toastGravity: ToastGravity,_ view: UIView) -> CGRect{
         
         var gravity = CGRect(x: 0.0, y: view.frame.height - 130.0, width: view.frame.width, height: 83.0)
         switch toastGravity {
@@ -83,25 +187,6 @@ public class MotionToastManager {
             gravity = CGRect(x: 0.0, y: view.frame.height - 130.0, width: view.frame.width, height: 83.0)
         }
         
-        let toastView = MotionToastView(frame: gravity)
-        toastView.headLabel.text = title
-        toastView.setupViews(toastType: toastType, cornerRadius: toastCornerRadius)
-        if pulseEffect { toastView.addPulseEffect() }
-        toastView.msgLabel.text = message
-        toastView.layer.cornerRadius = toastCornerRadius
-        return toastView
-    }
-    
-    private func generateHapticFeedback(for type: ToastType) {
-        let generator = UINotificationFeedbackGenerator()
-        generator.prepare()
-        switch type {
-        case .success:
-            generator.notificationOccurred(.success)
-        case .error:
-            generator.notificationOccurred(.error)
-        case .warning, .noConnection:
-            generator.notificationOccurred(.warning)
-        }
+        return gravity
     }
 }
