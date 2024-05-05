@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func successButt(_ sender: UIButton) {
-        MotionToastManager.shared.showSuccess(message: "تمت اضافة المنتج الى السلة بنجاح تمت اضافة المنتج الى السلة بنجاح", toastGravity: .top, iconGravity: .leading)
+        MotionToastManager.shared.showSuccess(message: "تم التعديل بنجاح", toastGravity: .top, iconGravity: .leading)
     }
     @IBAction func successButt2(_ sender: Any) {
         MotionToastManager.shared.showSuccess2(title:"تم ارسال الطلب بنجاح", message: "ميك آب ستيشن", toastGravity: .bottom,
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func infoButt(_ sender: UIButton) {
-        MotionToastManager.shared.showNoConnection(title: "Title here", message: "You are not in the location. Try again")
+        MotionToastManager.shared.showNoConnection(message: "You are not in the location. Try again")
     }
 
     @IBAction func didTapDismissButton(_ sender: Any) {

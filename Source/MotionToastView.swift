@@ -12,7 +12,7 @@ class MotionToastView: UIView {
     private var iconGravity : IconGravity!
     private var toastGravity: ToastGravity!
     private var toastType: ToastType!
-    private var title: String? = nil
+    private var title: String? = ""
     private var message: String!
     private var cornerRadius: CGFloat!
     private var addPulsEffect:Bool = false
@@ -146,82 +146,48 @@ class MotionToastView: UIView {
 
         switch iconGravity {
         case .leading:
-            let circleViewtopAnchor = circleView.topAnchor.constraint(equalTo: toastView.topAnchor, constant: 9)
-            circleViewtopAnchor.identifier = "circleViewtopAnchor"
-            let circleViewbottomAnchor = circleView.bottomAnchor.constraint(equalTo: toastView.bottomAnchor, constant: -9)
-            circleViewbottomAnchor.identifier = "circleViewbottomAnchor"
-            let circleViewleadingAnchor = circleView.leadingAnchor.constraint(equalTo: toastView.leadingAnchor, constant: 20)
-            circleViewleadingAnchor.identifier = "circleViewleadingAnchor"
-            let circleViewcenterYAnchor = circleView.centerYAnchor.constraint(equalTo: toastView.centerYAnchor)
-            circleViewcenterYAnchor.identifier = "circleViewcenterYAnchor"
-            let circleViewwidthAnchor = circleView.widthAnchor.constraint(equalToConstant: 45)
-            circleViewwidthAnchor.identifier = "circleViewwidthAnchor"
             
-            let stackViewtopAnchor = stackView.topAnchor.constraint(equalTo: toastView.topAnchor, constant: 15.5)
-            stackViewtopAnchor.identifier = "stackViewtopAnchor"
-            let stackViewbottomAnchor = stackView.bottomAnchor.constraint(equalTo: toastView.bottomAnchor, constant: -15.5)
-            stackViewbottomAnchor.identifier = "stackViewbottomAnchor"
-            let stackViewleadingAnchor = stackView.leadingAnchor.constraint(equalTo: circleView.trailingAnchor, constant: 16)
-            stackViewleadingAnchor.identifier = "stackViewleadingAnchor"
-            let stackViewtrailingAnchor = stackView.trailingAnchor.constraint(equalTo: toastView.trailingAnchor, constant: -20)
-            stackViewtrailingAnchor.identifier = "stackViewtrailingAnchor"
-            let stackViewcenterYAnchor = stackView.centerYAnchor.constraint(equalTo: circleView.centerYAnchor)
-            stackViewcenterYAnchor.identifier = "stackViewcenterYAnchor"
-
             NSLayoutConstraint.activate([
                 circleImg.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
                 circleImg.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
                 circleImg.widthAnchor.constraint(equalToConstant: 25),
                 circleImg.heightAnchor.constraint(equalToConstant: 25),
-                circleViewtopAnchor,
-                circleViewbottomAnchor,
-                circleViewleadingAnchor,
-                circleViewcenterYAnchor,
-                circleViewwidthAnchor,
-                stackViewtopAnchor,
-                stackViewbottomAnchor,
-                stackViewleadingAnchor,
-                stackViewtrailingAnchor,
-                stackViewcenterYAnchor
+                
+                circleView.topAnchor.constraint(equalTo: toastView.topAnchor, constant: 9),
+                circleView.bottomAnchor.constraint(equalTo: toastView.bottomAnchor, constant: -9),
+                circleView.leadingAnchor.constraint(equalTo: toastView.leadingAnchor, constant: 20),
+                circleView.centerYAnchor.constraint(equalTo: toastView.centerYAnchor),
+                circleView.widthAnchor.constraint(equalToConstant: 45),
+                
+                stackView.topAnchor.constraint(equalTo: toastView.topAnchor, constant: 15.5),
+                stackView.bottomAnchor.constraint(equalTo: toastView.bottomAnchor, constant: -15.5),
+                stackView.leadingAnchor.constraint(equalTo: circleView.trailingAnchor, constant: 16),
+                stackView.trailingAnchor.constraint(equalTo: toastView.trailingAnchor, constant: -20),
+                stackView.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
                 
             ])
+            
         case .trailing:
-            let circleViewtopAnchor = circleView.topAnchor.constraint(equalTo: toastView.topAnchor, constant: 9)
-            circleViewtopAnchor.identifier = "circleViewtopAnchor1"
-            let circleViewbottomAnchor = circleView.bottomAnchor.constraint(equalTo: toastView.bottomAnchor, constant: -9)
-            circleViewbottomAnchor.identifier = "circleViewbottomAnchor1"
-            let circleViewtrailingAnchor = circleView.trailingAnchor.constraint(equalTo: toastView.trailingAnchor, constant: -20)
-            circleViewtrailingAnchor.identifier = "circleViewtrailingAnchor1"
-            let circleViewcenterYAnchor = circleView.centerYAnchor.constraint(equalTo: toastView.centerYAnchor)
-            circleViewcenterYAnchor.identifier = "circleViewcenterYAnchor1"
-            let circleViewwidthAnchor = circleView.widthAnchor.constraint(equalToConstant: 45)
-            circleViewwidthAnchor.identifier = "circleViewwidthAnchor1"
-            let stackViewtopAnchor = stackView.topAnchor.constraint(equalTo: toastView.topAnchor, constant: 15.5)
-            stackViewtopAnchor.identifier = "stackViewtopAnchor1"
-            let stackViewbottomAnchor = stackView.bottomAnchor.constraint(equalTo: toastView.bottomAnchor, constant: -15.5)
-            stackViewbottomAnchor.identifier = "stackViewbottomAnchor1"
-            let stackViewleadingAnchor = stackView.leadingAnchor.constraint(equalTo: toastView.leadingAnchor, constant: 16)
-            stackViewleadingAnchor.identifier = "stackViewleadingAnchor1"
-            let stackViewtrailingAnchor = stackView.trailingAnchor.constraint(equalTo: circleView.leadingAnchor, constant: 20)
-            stackViewtrailingAnchor.identifier = "stackViewtrailingAnchor1"
-            let stackViewcenterYAnchor = stackView.centerYAnchor.constraint(equalTo: circleView.centerYAnchor)
-            stackViewcenterYAnchor.identifier = "stackViewcenterYAnchor1"
+
             
             NSLayoutConstraint.activate([
                 circleImg.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
                 circleImg.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
                 circleImg.widthAnchor.constraint(equalToConstant: 25),
                 circleImg.heightAnchor.constraint(equalToConstant: 25),
-                circleViewtopAnchor,
-                circleViewbottomAnchor,
-                circleViewtrailingAnchor,
-                circleViewcenterYAnchor,
-                circleViewwidthAnchor,
-                stackViewtopAnchor,
-                stackViewbottomAnchor,
-                stackViewleadingAnchor,
-                stackViewtrailingAnchor,
-                stackViewcenterYAnchor
+                
+                circleView.topAnchor.constraint(equalTo: toastView.topAnchor, constant: 9),
+                circleView.bottomAnchor.constraint(equalTo: toastView.bottomAnchor, constant: -9),
+                circleView.trailingAnchor.constraint(equalTo: toastView.trailingAnchor, constant: -20),
+                circleView.centerYAnchor.constraint(equalTo: toastView.centerYAnchor),
+                circleView.widthAnchor.constraint(equalToConstant: 45),
+                
+                stackView.topAnchor.constraint(equalTo: toastView.topAnchor, constant: 15.5),
+                stackView.bottomAnchor.constraint(equalTo: toastView.bottomAnchor, constant: -15.5),
+                stackView.leadingAnchor.constraint(equalTo: toastView.leadingAnchor, constant: 16),
+                stackView.trailingAnchor.constraint(equalTo: circleView.leadingAnchor, constant: 20),
+                stackView.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
+                
             ])
         case .none:
             break
@@ -235,7 +201,7 @@ class MotionToastView: UIView {
             
             parentView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
             parentView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            parentView.heightAnchor.constraint(lessThanOrEqualToConstant: 83),
+            parentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 65),
             parentView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10)
 
             
